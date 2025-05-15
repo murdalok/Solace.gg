@@ -1,0 +1,11 @@
+## Interface: 110100, 110105
+## Title: Solace.gg
+## Notes: The Solace Guild Gateway. This addon provides basic features and services to the guild.
+## Author: Murdalok
+## Version: 0.1
+## IconTexture: Interface\AddOns\SolaceGG\icon
+
+## SavedVariables: SolaceGG
+main.lua
+events.lua
+keydata.lua
