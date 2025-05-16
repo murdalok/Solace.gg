@@ -7,8 +7,6 @@ SolaceGG.Frame:RegisterEvent("CHALLENGE_MODE_COMPLETED")
 SolaceGG.Frame:SetScript("OnEvent", function(self, event, ...)
    if event == "CHAT_MSG_GUILD" then
       local msg, sender = ...
-      print("Player key data exists:", SolaceSavedKey[SolaceGG.Player] ~= nil)
-      print(string.format("Message event caught: %s", msg))
       SolaceGG:KeyRespond(msg)
    else
       SolaceGG:SaveKey()
