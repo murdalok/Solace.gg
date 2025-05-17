@@ -1,5 +1,3 @@
--- SolaceGG.KeyData = {} defined in main.lua
-
 function SolaceGG:SaveKey()
    -- This method will write a new subtable [Player-Realm] to SolaceGG.KeyData
    -- or update the table if it exists already
@@ -14,13 +12,15 @@ function SolaceGG:SaveKey()
       keydata.mapName = mapName
       keydata.keyLevel = keyLevel
       SolaceSavedKey[SolaceGG.Player] = keydata
+      print("Solace.gg: key updated")
    end
 end
 
 function SolaceGG:KeyRespond(msg)
    -- Responds to @keys in guild chat with the players current key, will respond regardless of sender
-   if SolaceSavedKey[SolaceGG.Player] and msg:lower():find("@keys") then
-      local response = string.format("%d - %s", SolaceSavedKey[SolaceGG.Player].keyLevel, SolaceSavedKey[SolaceGG.Player].mapName)
+   local player = SolaceGG.Player
+   if SolaceSavedKey[player] and msg:lower():find("@keys") then
+      local response = string.format("%d - %s", SolaceSavedKey[player].keyLevel, SolaceSavedKey[player].mapName)
       SendChatMessage(response, "GUILD")
    end
 end
